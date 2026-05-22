@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'CameraPlainVariable';
+  src: url('/fonts/CameraPlainVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+@layer components {
+  /* Engineering frame: simple border */
+  .drawing-frame {
+    @apply border border-border;
+  }
+
+  /* BOM / title block container */
+  .title-block {
+    @apply border border-border font-mono text-[11px] tracking-[0.18em] uppercase;
+  }
+
+  /* Row inside a title-block */
+  .cell {
+    @apply border-b border-border px-4 py-2 last:border-b-0;
+  }
+
+  /* Small label with crosshair prefix */
+  .callout {
+    @apply flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground;
+  }
+  .callout::before {
+    content: '';
+    @apply block h-2 w-2 rounded-full border border-muted-foreground flex-shrink-0;
+  }
+
+  /* Crosshair dot standalone */
+  .crosshair {
+    @apply inline-block h-2 w-2 rounded-full border border-foreground/40;
+  }
+
+  /* Underline in ember on hover */
+  .ember-underline {
+    @apply underline decoration-ember underline-offset-2;
+  }
+
+  /* Small eyebrow label (footer/sections) */
+  .eyebrow {
+    @apply font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground;
+  }
+}
