@@ -1,0 +1,24 @@
+---
+interface Props {
+  number: string;
+  total?: string;
+  title: string;
+  rev: string;
+  author?: string;
+  year?: string;
+}
+const { number, total = '06', title, rev, author = 'Aditya Shah', year = '2026' } = Astro.props;
+---
+<div class="flex items-end justify-between flex-wrap gap-3 font-mono text-[10px] tracking-[0.25em] uppercase border-b border-border pb-3">
+  <div class="flex items-center gap-4">
+    <span class="crosshair"></span>
+    <span>Sheet {number} / {total}</span>
+    <span class="hidden sm:inline text-foreground/50">·</span>
+    <span class="hidden sm:inline">{title}</span>
+  </div>
+  <div class="flex items-center gap-4">
+    <span>Rev {rev}</span>
+    <span class="h-px w-10 bg-border"></span>
+    <span>{author} · {year}</span>
+  </div>
+</div>

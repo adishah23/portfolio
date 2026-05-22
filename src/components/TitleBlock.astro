@@ -1,0 +1,34 @@
+---
+interface Props {
+  header: string;
+  headerRight?: string;
+  rows: Array<{ left?: string; label?: string; value: string; id?: string }>;
+  footer?: Array<{ left: string; center?: string; right: string }>;
+}
+const { header, headerRight, rows, footer } = Astro.props;
+---
+<div class="title-block">
+  <div class="cell flex items-center justify-between bg-foreground text-background">
+    <span>{header}</span>
+    {headerRight && <span>{headerRight}</span>}
+  </div>
+  {rows.map((row) => (
+    <div class="cell">
+      <div class="flex items-center justify-between gap-3">
+        <span class="flex items-center gap-3">
+          {row.id && <span class="text-foreground/60">{row.id}</span>}
+          {row.label && <span>{row.label}</span>}
+          {row.left && <span class="text-muted-foreground">{row.left}</span>}
+        </span>
+        <span class="text-right">{row.value}</span>
+      </div>
+    </div>
+  ))}
+  {footer && footer.map((f) => (
+    <div class="cell flex items-center justify-between gap-2 text-[10px]">
+      <span>{f.left}</span>
+      {f.center && <span>{f.center}</span>}
+      <span>{f.right}</span>
+    </div>
+  ))}
+</div>
