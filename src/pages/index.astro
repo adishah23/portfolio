@@ -1,8 +1,232 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SheetHeader from '../components/SheetHeader.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import { SITE, HOME, PROJECTS } from '../data/content';
+const base = import.meta.env.BASE_URL;
+const s = HOME.sheets;
 ---
 <Layout activeNav="index">
-  <div class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-20">
-    <p class="font-mono text-sm text-muted-foreground">Homepage coming in Task 7.</p>
-  </div>
+
+  <!-- Sheet 01: General Arrangement -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-14">
+    <SheetHeader number={s[0].number} title={s[0].title} rev={s[0].rev} />
+    <div class="drawing-frame mt-6 p-6 lg:p-10">
+      <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">A1 — 841 × 594 mm</div>
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7">
+          <div class="callout mb-6">Item 01 · Subject</div>
+          <h1 class="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] tracking-tight">
+            {HOME.headline[0]}<br />{HOME.headline[1]}<br />{HOME.headline[2]}<span class="text-ember">.</span>
+          </h1>
+          <div class="mt-6 flex items-center gap-4">
+            <span class="h-px w-24 bg-border"></span>
+            <span class="font-mono text-[10px] tracking-[0.25em] uppercase">⌀ 0.001″ tol.</span>
+            <span class="h-px flex-1 bg-border"></span>
+          </div>
+          <p class="mt-8 max-w-xl text-sm leading-relaxed font-mono">{HOME.bio}</p>
+          <div class="mt-10 flex flex-wrap items-center gap-5">
+            <a href={`${base}experience`} class="group inline-flex items-center gap-3 border border-foreground bg-foreground text-background px-5 py-3 text-[11px] font-tech hover:bg-ember hover:border-ember transition-colors">
+              Work Experience<span class="transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a href={SITE.resume} target="_blank" rel="noreferrer" class="text-[11px] font-tech border-b border-foreground/40 hover:border-ember hover:text-ember transition-colors pb-1">
+              Resume.pdf ↗
+            </a>
+          </div>
+        </div>
+        <aside class="lg:col-span-5">
+          <TitleBlock
+            header="Parts List"
+            headerRight="BOM · REV C"
+            rows={HOME.bom.map(b => ({ id: b.id, label: b.label, value: b.value }))}
+          />
+          <div class="mt-6 flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase">
+            <div class="flex items-center gap-3"><span class="crosshair"></span><span>Datum A</span></div>
+            <span>Scale 1 : 1</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sheet 02: Prepreg Layup -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pb-14">
+    <SheetHeader number={s[1].number} title={s[1].title} rev={s[1].rev} />
+    <div class="mt-6 grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-9 relative drawing-frame overflow-hidden">
+        <img src={`${base}assets/hero.jpg`} alt="Carbon fiber composite layup beside an autoclave" width="1600" height="1200" class="w-full h-[55vh] lg:h-[65vh] object-cover" />
+        <div class="absolute inset-0 pointer-events-none">
+          {[
+            { top: '14%', left: '18%', label: '01 · Heat Lamp' },
+            { top: '48%', left: '62%', label: '02 · Autoclave Door' },
+            { top: '74%', left: '22%', label: '03 · Layup Bed' },
+          ].map(dot => (
+            <div class="absolute flex items-center gap-2" style={`top:${dot.top};left:${dot.left}`}>
+              <span class="block h-2 w-2 rounded-full bg-ember ring-2 ring-background"></span>
+              <span class="h-px w-12 bg-foreground/70"></span>
+              <span class="font-mono text-[10px] tracking-[0.22em] uppercase bg-background/90 border border-border px-2 py-1">{dot.label}</span>
+            </div>
+          ))}
+          <span class="absolute w-5 h-5 border-foreground top-3 left-3 border-l border-t"></span>
+          <span class="absolute w-5 h-5 border-foreground top-3 right-3 border-r border-t"></span>
+          <span class="absolute w-5 h-5 border-foreground bottom-14 left-3 border-l border-b"></span>
+          <span class="absolute w-5 h-5 border-foreground bottom-14 right-3 border-r border-b"></span>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 bg-background/95 border-t border-border px-5 py-3 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase">
+          <span>Fig. 01 — Prepreg layup · Autoclave cure cycle</span>
+          <span>View A–A · Section 3:1</span>
+        </div>
+      </div>
+      <aside class="lg:col-span-3 flex flex-col justify-between gap-6">
+        <TitleBlock
+          header="Process Notes"
+          rows={[
+            { value: '1. Layup under Class-100 conditions.' },
+            { value: '2. Cure 350°F @ 85 psi · 120 min.' },
+            { value: '3. Vacuum bag integrity 28 inHg min.' },
+            { value: '4. NDT ultrasonic A-scan post-cure.' },
+          ]}
+        />
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase">
+          {[
+            { label: 'Material', value: 'T800 / 3900-2' },
+            { label: 'Plies',    value: '16 · [0/45/-45/90]₂ₛ' },
+            { label: 'VF target', value: '58 ± 2 %' },
+          ].map((row, i, arr) => (
+            <div class={`flex justify-between py-2 ${i < arr.length - 1 ? 'border-b border-border' : ''}`}>
+              <span>{row.label}</span><span>{row.value}</span>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Sheet 03: Active Research -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pb-14">
+    <SheetHeader number={s[2].number} title={s[2].title} rev={s[2].rev} />
+    <div class="mt-6 drawing-frame p-8 lg:p-12 grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-3">
+        <div class="callout mb-4">Status · Current</div>
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase space-y-2">
+          <div>Lab · M&amp;T VT</div>
+          <div>Since · {HOME.research.since}</div>
+          <div>Sheet · 03/06</div>
+        </div>
+      </div>
+      <div class="lg:col-span-9">
+        <p class="font-display text-3xl md:text-4xl leading-snug">
+          Graduate research on <span class="ember-underline">ultrasound-directed self-assembly</span> of microparticles in VAT photopolymerization — manufacturing functional materials with tailored conductivity, strength, and volatility.
+        </p>
+        <div class="mt-8 grid grid-cols-3 gap-4 font-mono text-[10px] tracking-[0.22em] uppercase">
+          {HOME.research.specs.map(spec => (
+            <div class="border-t border-border pt-2">
+              <div class="text-foreground/60 mb-1">{spec.label}</div>
+              <div>{spec.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sheet 04: Projects -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pb-14">
+    <SheetHeader number={s[3].number} title={s[3].title} rev={s[3].rev} />
+    <div class="mt-6 flex items-end justify-between flex-wrap gap-4 mb-8">
+      <h2 class="font-display text-5xl md:text-6xl leading-[0.95]">Projects, briefly<span class="text-ember">.</span></h2>
+      <a href={`${base}projects`} class="font-tech text-[11px] hover:text-ember transition-colors border-b border-foreground/40 hover:border-ember pb-1">All Projects →</a>
+    </div>
+    <div class="grid md:grid-cols-12 gap-6">
+      {PROJECTS.slice(0, 3).map((p, i) => (
+        <a href={`${base}projects`} class={`group block relative overflow-hidden drawing-frame ${i === 0 ? 'md:col-span-7' : 'md:col-span-5'}`}>
+          <img src={`${base}assets/${p.image!.replace('/assets/', '')}`} alt={p.alt} loading="lazy" class="w-full h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+          <div class="absolute inset-0 p-5 flex flex-col justify-between">
+            <div class="flex items-start justify-between font-mono text-[10px] tracking-[0.25em] uppercase">
+              <span class="bg-background/90 border border-border px-2 py-1">Item {String(i + 1).padStart(2, '0')}</span>
+              <span class="bg-foreground text-background px-2 py-1">{p.badge}</span>
+            </div>
+            <div class="bg-background/95 border-t border-border -mx-5 -mb-5 px-5 py-4">
+              <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/70 mb-1">{p.discipline}</div>
+              <div class="font-display text-2xl md:text-[1.6rem] leading-tight">{p.title}</div>
+            </div>
+          </div>
+        </a>
+      ))}
+      <div class="md:col-span-7 drawing-frame p-8 flex flex-col justify-between">
+        <div>
+          <div class="callout mb-5">Schedule · Disciplines</div>
+          <table class="w-full font-mono text-[11px] tracking-[0.14em] uppercase">
+            <thead>
+              <tr class="border-b border-border text-[10px] text-foreground">
+                <th class="text-left py-2 w-10">No</th>
+                <th class="text-left py-2">Discipline</th>
+                <th class="text-right py-2">Tooling</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { no: '01', discipline: 'Composite tooling & layup', tooling: 'Autoclave · OoA' },
+                { no: '02', discipline: 'Additive manufacturing',     tooling: 'LPBF · VAT' },
+                { no: '03', discipline: 'Aerodynamics & CFD',         tooling: 'SimScale · STAR' },
+                { no: '04', discipline: 'DFAM & design optimisation', tooling: 'NX · nTop' },
+              ].map(row => (
+                <tr class="border-b border-border last:border-b-0">
+                  <td class="py-3 text-foreground/60">{row.no}</td>
+                  <td class="py-3">{row.discipline}</td>
+                  <td class="py-3 text-right text-foreground/70">{row.tooling}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <a href={`${base}skills`} class="mt-8 font-tech text-[11px] hover:text-ember transition-colors border-b border-foreground/40 hover:border-ember pb-1 self-start">Full Skillset →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sheet 05: Quote -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pb-14">
+    <SheetHeader number={s[4].number} title={s[4].title} rev={s[4].rev} />
+    <div class="mt-6 drawing-frame p-10 lg:p-16 text-center">
+      <div class="callout justify-center mb-6">Note 01</div>
+      <p class="font-display italic text-3xl md:text-5xl leading-snug max-w-4xl mx-auto">
+        "{HOME.quote.normal} <span class="text-ember not-italic">{HOME.quote.ember}</span>
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 font-mono text-[10px] tracking-[0.25em] uppercase">
+        <span class="h-px w-12 bg-border"></span>
+        <span>{HOME.quote.attr}</span>
+        <span class="h-px w-12 bg-border"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sheet 06: Contact Title Block -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-10 pb-20">
+    <SheetHeader number={s[5].number} title={s[5].title} rev={s[5].rev} />
+    <div class="mt-6 grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-7 drawing-frame p-10 lg:p-14 flex items-center">
+        <h2 class="font-display text-5xl md:text-7xl leading-[0.95]">
+          Let's build<br />something<br /><span class="italic text-ember">tangible.</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-5">
+        <TitleBlock
+          header="Title Block"
+          headerRight="AS-001 · A1"
+          rows={[
+            { left: 'Drawn By',   value: SITE.name },
+            { left: 'Discipline', value: 'Mech · Composites · AM' },
+            { left: 'Available',  value: 'Summer 2026' },
+            { left: 'Email',      value: SITE.email },
+            { left: 'Phone',      value: SITE.phone },
+            { left: 'LinkedIn',   value: 'adityashah2301 ↗' },
+          ]}
+          footer={[{ left: 'Scale 1:1', center: 'Units · mm', right: 'Sheet 06 / 06' }]}
+        />
+      </div>
+    </div>
+  </section>
+
 </Layout>
