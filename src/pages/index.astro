@@ -2,8 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import SheetHeader from '../components/SheetHeader.astro';
 import TitleBlock from '../components/TitleBlock.astro';
-import { SITE, HOME, PROJECTS } from '../data/content';
+import { getHome, getProjects, getSite } from '../data/content';
 const base = import.meta.env.BASE_URL;
+const [SITE, HOME, PROJECTS] = await Promise.all([getSite(), getHome(), getProjects()]);
 const s = HOME.sheets;
 ---
 <Layout activeNav="index">
@@ -80,19 +81,10 @@ const s = HOME.sheets;
       <aside class="lg:col-span-3 flex flex-col justify-between gap-6">
         <TitleBlock
           header="Process Notes"
-          rows={[
-            { value: '1. Layup under Class-100 conditions.' },
-            { value: '2. Cure 350°F @ 85 psi · 120 min.' },
-            { value: '3. Vacuum bag integrity 28 inHg min.' },
-            { value: '4. NDT ultrasonic A-scan post-cure.' },
-          ]}
+          rows={HOME.processNotes.map((value) => ({ value }))}
         />
         <div class="font-mono text-[10px] tracking-[0.22em] uppercase">
-          {[
-            { label: 'Material', value: 'T800 / 3900-2' },
-            { label: 'Plies',    value: '16 · [0/45/-45/90]₂ₛ' },
-            { label: 'VF target', value: '58 ± 2 %' },
-          ].map((row, i, arr) => (
+          {HOME.processSpecs.map((row, i, arr) => (
             <div class={`flex justify-between py-2 ${i < arr.length - 1 ? 'border-b border-border' : ''}`}>
               <span>{row.label}</span><span>{row.value}</span>
             </div>
@@ -115,9 +107,7 @@ const s = HOME.sheets;
         </div>
       </div>
       <div class="lg:col-span-9">
-        <p class="font-display text-3xl md:text-4xl leading-snug">
-          Graduate research on <span class="ember-underline">ultrasound-directed self-assembly</span> of microparticles in VAT photopolymerization — manufacturing functional materials with tailored conductivity, strength, and volatility.
-        </p>
+        <p class="font-display text-3xl md:text-4xl leading-snug">{HOME.research.body}</p>
         <div class="mt-8 grid grid-cols-3 gap-4 font-mono text-[10px] tracking-[0.22em] uppercase">
           {HOME.research.specs.map(spec => (
             <div class="border-t border-border pt-2">
@@ -166,12 +156,7 @@ const s = HOME.sheets;
               </tr>
             </thead>
             <tbody>
-              {[
-                { no: '01', discipline: 'Composite tooling & layup', tooling: 'Autoclave · OoA' },
-                { no: '02', discipline: 'Additive manufacturing',     tooling: 'LPBF · VAT' },
-                { no: '03', discipline: 'Aerodynamics & CFD',         tooling: 'SimScale · STAR' },
-                { no: '04', discipline: 'DFAM & design optimisation', tooling: 'NX · nTop' },
-              ].map(row => (
+              {HOME.projectDisciplineTable.map(row => (
                 <tr class="border-b border-border last:border-b-0">
                   <td class="py-3 text-foreground/60">{row.no}</td>
                   <td class="py-3">{row.discipline}</td>
@@ -215,14 +200,7 @@ const s = HOME.sheets;
         <TitleBlock
           header="Title Block"
           headerRight="AS-001 · A1"
-          rows={[
-            { left: 'Drawn By',   value: SITE.name },
-            { left: 'Discipline', value: 'Mech · Composites · AM' },
-            { left: 'Available',  value: 'Summer 2026' },
-            { left: 'Email',      value: SITE.email },
-            { left: 'Phone',      value: SITE.phone },
-            { left: 'LinkedIn',   value: 'adityashah2301 ↗' },
-          ]}
+          rows={HOME.contactTitleRows}
           footer={[{ left: 'Scale 1:1', center: 'Units · mm', right: 'Sheet 06 / 06' }]}
         />
       </div>

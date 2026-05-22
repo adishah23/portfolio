@@ -4,6 +4,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   output: 'static',
   site: 'https://darshannere.github.io',
-  base: '/aditya',
+  base: '/aditya/',
   integrations: [tailwind({ applyBaseStyles: false })],
 });

@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SheetHeader from '../components/SheetHeader.astro';
-import { ABOUT } from '../data/content';
+import { getAbout } from '../data/content';
+const ABOUT = await getAbout();
 ---
 <Layout title="About — Aditya Shah" activeNav="about">
   <div class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-20">

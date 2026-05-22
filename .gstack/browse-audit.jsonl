@@ -1,0 +1,15 @@
+{"ts":"2026-05-22T19:56:13.810Z","cmd":"goto","args":"https://adityas-folio.lovable.app/","origin":"https://adityas-folio.lovable.app/","durationMs":2045,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T19:56:14.482Z","cmd":"screenshot","args":"/tmp/folio-full.png","origin":"https://adityas-folio.lovable.app/","durationMs":592,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T19:56:28.382Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/","durationMs":11,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T19:56:56.466Z","cmd":"responsive","args":"/tmp/folio","origin":"https://adityas-folio.lovable.app/","durationMs":1217,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T19:58:25.624Z","cmd":"html","args":"","origin":"https://adityas-folio.lovable.app/","durationMs":12,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:04:54.222Z","cmd":"goto","args":"https://adityas-folio.lovable.app/about","origin":"https://adityas-folio.lovable.app/about","durationMs":1736,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:04:54.297Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/about","durationMs":3,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:11.726Z","cmd":"goto","args":"https://adityas-folio.lovable.app/experience","origin":"https://adityas-folio.lovable.app/experience","durationMs":836,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:11.953Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/experience","durationMs":6,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:22.143Z","cmd":"goto","args":"https://adityas-folio.lovable.app/projects","origin":"https://adityas-folio.lovable.app/projects","durationMs":534,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:22.228Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/projects","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:28.726Z","cmd":"goto","args":"https://adityas-folio.lovable.app/skills","origin":"https://adityas-folio.lovable.app/skills","durationMs":539,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:28.808Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/skills","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:57.370Z","cmd":"goto","args":"https://adityas-folio.lovable.app/contact","origin":"https://adityas-folio.lovable.app/contact","durationMs":696,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-05-22T20:05:57.682Z","cmd":"text","args":"","origin":"https://adityas-folio.lovable.app/contact","durationMs":5,"status":"ok","hasCookies":false,"mode":"launched"}

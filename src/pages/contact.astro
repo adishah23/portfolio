@@ -2,14 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import SheetHeader from '../components/SheetHeader.astro';
 import TitleBlock from '../components/TitleBlock.astro';
-import { CONTACT } from '../data/content';
+import { getContact } from '../data/content';
+const CONTACT = await getContact();
 ---
 <Layout title="Contact — Aditya Shah" activeNav="contact">
   <div class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-20">
     <SheetHeader number="001" total="001" title="Contact · let's talk" rev="C" />
     <div class="mt-4 mb-12">
       <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">Say hello.</div>
-      <p class="font-mono text-sm mt-4 max-w-xl leading-relaxed">Best way to reach me is email — I read everything. Open to full-time roles, research collaborations, and a good engineering conversation.</p>
+      <p class="font-mono text-sm mt-4 max-w-xl leading-relaxed">{CONTACT.intro}</p>
     </div>
     <div class="grid lg:grid-cols-12 gap-8">
       <div class="lg:col-span-6 space-y-4">

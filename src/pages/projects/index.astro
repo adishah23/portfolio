@@ -1,8 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SheetHeader from '../../components/SheetHeader.astro';
-import { PROJECTS } from '../../data/content';
+import { getProjects } from '../../data/content';
 const base = import.meta.env.BASE_URL;
+const PROJECTS = await getProjects();
 ---
 <Layout title="Projects — Aditya Shah" activeNav="projects">
   <div class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-20">
