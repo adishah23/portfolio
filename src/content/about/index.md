@@ -2,9 +2,9 @@
 quote: "It all works out in the end — if it isn't working, it's not the end."
 info:
   - label: Name
-    value: Aditya Nere
+    value: Aditya Shah
   - label: Born
-    value: Mumbai, India
+    value: Mumbai, IN
   - label: Based
     value: Blacksburg, VA
   - label: School
