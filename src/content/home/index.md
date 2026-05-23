@@ -20,8 +20,8 @@ sheets:
     rev: C
 headline:
   - "Composites,"
-  - "Additive Mfg.,"
-  - Design
+  - "Additive Manufacturing,"
+  - "Design"
 bio: Graduate Mechanical Engineer from Virginia Tech with hands-on experience in composites, additive manufacturing, aerodynamics, and mechanical design. Solving complex engineering problems through research and design.
 bom:
   - id: "01"
