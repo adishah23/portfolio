@@ -21,7 +21,7 @@
 
   /* BOM / title block container */
   .title-block {
-    @apply border border-border font-mono text-[11px] tracking-[0.18em] uppercase;
+    @apply border border-border font-mono text-xs tracking-[0.18em] uppercase;
   }
 
   /* Row inside a title-block */
@@ -31,7 +31,7 @@
 
   /* Small label with crosshair prefix */
   .callout {
-    @apply flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground;
+    @apply flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground;
   }
   .callout::before {
     content: '';
@@ -50,6 +50,6 @@
 
   /* Small eyebrow label (footer/sections) */
   .eyebrow {
-    @apply font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground;
+    @apply font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground;
   }
 }

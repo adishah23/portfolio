@@ -25,7 +25,7 @@ const { header, headerRight, rows, footer } = Astro.props;
     </div>
   ))}
   {footer && footer.map((f) => (
-    <div class="cell flex items-center justify-between gap-2 text-[10px]">
+    <div class="cell flex items-center justify-between gap-2">
       <span>{f.left}</span>
       {f.center && <span>{f.center}</span>}
       <span>{f.right}</span>

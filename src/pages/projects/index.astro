@@ -9,7 +9,7 @@ const PROJECTS = await getProjects();
   <div class="mx-auto max-w-7xl px-6 lg:px-10 pt-10 pb-20">
     <SheetHeader number="04" total="04" title="Projects · Selected" rev="D" />
     <div class="mt-4 mb-12">
-      <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">04 selected</div>
+      <div class="font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">04 selected</div>
       <h1 class="font-display text-4xl md:text-5xl mt-2">Designed, simulated, built — tested.</h1>
     </div>
     <div class="space-y-16">
@@ -18,15 +18,15 @@ const PROJECTS = await getProjects();
           {p.image ? (
             <div class="lg:col-span-7 relative drawing-frame overflow-hidden">
               <img src={`${base}assets/${p.image.replace('/assets/', '')}`} alt={p.alt} loading="lazy" class="w-full h-72 md:h-80 object-cover" />
-              <div class="absolute top-3 left-3 font-mono text-[10px] tracking-[0.25em] uppercase bg-background/90 border border-border px-2 py-1">Fig.{p.fig} — {p.discipline}</div>
+              <div class="absolute top-3 left-3 font-mono text-[11px] tracking-[0.25em] uppercase bg-background/90 border border-border px-2 py-1">Fig.{p.fig} — {p.discipline}</div>
             </div>
           ) : (
             <div class="lg:col-span-7 drawing-frame p-10 flex items-center justify-center min-h-48">
-              <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground text-center">Fig.{p.fig} — {p.discipline}</div>
+              <div class="font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground text-center">Fig.{p.fig} — {p.discipline}</div>
             </div>
           )}
           <div class="lg:col-span-5">
-            <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-1">{p.number} · {p.badge}</div>
+            <div class="font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground mb-1">{p.number} · {p.badge}</div>
             <h2 class="font-display text-2xl md:text-3xl mb-6">{p.title}</h2>
             <ul class="space-y-3 mb-6">
               {p.bullets.map(b => (
@@ -37,7 +37,7 @@ const PROJECTS = await getProjects();
             </ul>
             <div class="flex flex-wrap gap-2">
               {p.tags.map(tag => (
-                <span class="font-mono text-[10px] tracking-[0.2em] uppercase border border-border px-2 py-1 text-muted-foreground">{tag}</span>
+                <span class="font-mono text-[11px] tracking-[0.2em] uppercase border border-border px-2 py-1 text-muted-foreground">{tag}</span>
               ))}
             </div>
           </div>
@@ -46,7 +46,7 @@ const PROJECTS = await getProjects();
     </div>
     <div class="mt-20 drawing-frame p-10 text-center">
       <p class="font-display italic text-2xl md:text-3xl leading-snug max-w-3xl mx-auto">"An engineer is someone who can do for a dime what any fool can do for a dollar."</p>
-      <div class="mt-6 flex items-center justify-center gap-4 font-mono text-[10px] tracking-[0.25em] uppercase">
+      <div class="mt-6 flex items-center justify-center gap-4 font-mono text-[11px] tracking-[0.25em] uppercase">
         <span class="h-px w-12 bg-border"></span><span>— Henry Ford</span><span class="h-px w-12 bg-border"></span>
       </div>
     </div>

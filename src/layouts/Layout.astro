@@ -56,13 +56,13 @@ const navLinks = [
         <a href={`${base}`} class="flex items-center gap-3">
           <span class="h-2 w-2 rounded-full bg-ember"></span>
           <span class="font-display text-xl">{SITE.name}</span>
-          <span class="hidden sm:inline font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground ml-2">{SITE.tagline}</span>
+          <span class="hidden sm:inline font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground ml-2">{SITE.tagline}</span>
         </a>
         <nav class="hidden md:flex items-center gap-7">
           {navLinks.map(({ href, label }) => (
             <a
               href={href}
-              class={`font-mono text-[11px] tracking-[0.2em] uppercase transition-colors hover:text-foreground ${
+              class={`font-mono text-xs tracking-[0.2em] uppercase transition-colors hover:text-foreground ${
                 activeNav === label.toLowerCase()
                   ? 'text-foreground ember-underline'
                   : 'text-muted-foreground'
@@ -72,7 +72,7 @@ const navLinks = [
             </a>
           ))}
         </nav>
-        <button aria-label="Toggle menu" class="md:hidden font-mono text-xs tracking-widest uppercase">Menu</button>
+        <button aria-label="Toggle menu" class="md:hidden font-mono text-xs tracking-widest uppercase py-1 px-2">Menu</button>
       </div>
     </header>
 
@@ -108,7 +108,7 @@ const navLinks = [
         </div>
       </div>
       <div class="border-t border-border">
-        <div class="mx-auto max-w-7xl px-6 lg:px-10 py-5 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+        <div class="mx-auto max-w-7xl px-6 lg:px-10 py-5 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
           <span>© {SITE.year} {SITE.name}</span>
           <span>{SITE.coords}</span>
         </div>

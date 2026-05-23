@@ -5,7 +5,7 @@ info:
     value: Aditya Shah
   - label: Based
     value: Blacksburg, VA
-  - label: School
+  - label: Master's
     value: Virginia Tech — M.S. ME
   - label: Undergrad
     value: K.J. Somaiya — B.Tech ME
