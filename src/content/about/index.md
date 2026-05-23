@@ -3,8 +3,11 @@ quote: "It all works out in the end — if it isn't working, it's not the end."
 info:
   - label: Name
     value: Aditya Shah
+<<<<<<< HEAD
   - label: Born
     value: Mumbai, IN
+=======
+>>>>>>> b6ab472 (born delete)
   - label: Based
     value: Blacksburg, VA
   - label: School
